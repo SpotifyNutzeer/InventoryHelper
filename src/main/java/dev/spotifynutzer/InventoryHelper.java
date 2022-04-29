@@ -1,7 +1,13 @@
 package dev.spotifynutzer;
 
+import dev.spotifynutzer.inventory.Inventory;
 import dev.spotifynutzer.manager.ColorManager;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InventoryHelper extends JavaPlugin {
 
@@ -11,18 +17,12 @@ public class InventoryHelper extends JavaPlugin {
     // The main color manager
     private ColorManager colorManager;
 
+    private final List<Inventory> inventories = new ArrayList<>();
+
     @Override
     public void onLoad() {
         // Setting the instance
         instance = this;
-
-
-    }
-
-    @Override
-    public void onEnable() {
-
-
     }
 
     @Override
@@ -39,6 +39,17 @@ public class InventoryHelper extends JavaPlugin {
 
     public ColorManager getColorManager() {
         return colorManager;
+    }
+
+    public List<Inventory> getInventories() {
+        return inventories;
+    }
+
+    public void addInventory(Inventory inventory) {
+        inventories.add(inventory);
+
+        PluginManager pluginManager = Bukkit.getPluginManager();
+        pluginManager.registerEvents(inventory, this);
     }
 
     public void setColorManager(ColorManager colorManager) {

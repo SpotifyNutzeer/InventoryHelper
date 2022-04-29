@@ -1,0 +1,4 @@
+main: dev.spotifynutzer.InventoryHelper
+version: 1.0
+name: "InventoryHelper"
+author: "Paul Weber"
