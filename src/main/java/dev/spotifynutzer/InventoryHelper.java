@@ -11,48 +11,48 @@ import java.util.List;
 
 public class InventoryHelper extends JavaPlugin {
 
-    // Declaring the instance
-    private static InventoryHelper instance;
+  // Declaring the instance
+  private static InventoryHelper instance;
 
-    // The main color manager
-    private ColorManager colorManager;
+  // The main color manager
+  private ColorManager colorManager;
 
-    private final List<Inventory> inventories = new ArrayList<>();
+  private final List<Inventory> inventories = new ArrayList<>();
 
-    @Override
-    public void onLoad() {
-        // Setting the instance
-        instance = this;
-    }
+  @Override
+  public void onLoad() {
+    // Setting the instance
+    instance = this;
+  }
 
-    @Override
-    public void onDisable() {
+  @Override
+  public void onDisable() {
 
-    }
+  }
 
-    /**
-     * @return The main instance of this class
-     */
-    public static InventoryHelper getInstance() {
-        return instance;
-    }
+  /**
+   * @return The main instance of this class
+   */
+  public static InventoryHelper getInstance() {
+    return instance;
+  }
 
-    public ColorManager getColorManager() {
-        return colorManager;
-    }
+  public ColorManager getColorManager() {
+    return colorManager;
+  }
 
-    public List<Inventory> getInventories() {
-        return inventories;
-    }
+  public List<Inventory> getInventories() {
+    return inventories;
+  }
 
-    public void addInventory(Inventory inventory) {
-        inventories.add(inventory);
+  public void addInventory(Inventory inventory) {
+    inventories.add(inventory);
 
-        PluginManager pluginManager = Bukkit.getPluginManager();
-        pluginManager.registerEvents(inventory, this);
-    }
+    PluginManager pluginManager = Bukkit.getPluginManager();
+    pluginManager.registerEvents(inventory, this);
+  }
 
-    public void setColorManager(ColorManager colorManager) {
-        this.colorManager = colorManager;
-    }
+  public void setColorManager(ColorManager colorManager) {
+    this.colorManager = colorManager;
+  }
 }
