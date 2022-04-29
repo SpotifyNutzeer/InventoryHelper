@@ -1,7 +1,6 @@
 package dev.spotifynutzer;
 
 import dev.spotifynutzer.inventory.Inventory;
-import dev.spotifynutzer.manager.ColorManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,9 +12,6 @@ public class InventoryHelper extends JavaPlugin {
 
   // Declaring the instance
   private static InventoryHelper instance;
-
-  // The main color manager
-  private ColorManager colorManager;
 
   private final List<Inventory> inventories = new ArrayList<>();
 
@@ -37,10 +33,6 @@ public class InventoryHelper extends JavaPlugin {
     return instance;
   }
 
-  public ColorManager getColorManager() {
-    return colorManager;
-  }
-
   public List<Inventory> getInventories() {
     return inventories;
   }
@@ -50,9 +42,5 @@ public class InventoryHelper extends JavaPlugin {
 
     PluginManager pluginManager = Bukkit.getPluginManager();
     pluginManager.registerEvents(inventory, this);
-  }
-
-  public void setColorManager(ColorManager colorManager) {
-    this.colorManager = colorManager;
   }
 }
